@@ -1,0 +1,172 @@
+%------------Basic document settings--------------%
+\documentclass[12pt, twoside, openright]{article}
+\usepackage[a4paper,width = 150mm, top=25mm, bottom= 25mm, bindingoffset = 6mm, footskip=35pt]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-lcroman]{babel}
+% \usepackage[american]{babel}
+
+%---------Graphics paths and labels------------%
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage[labelfont=bf]{caption}
+\usepackage{subcaption}
+\usepackage{titlesec}
+
+%-Miscellaneous packages for different purposes-%
+\usepackage{chngcntr}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{url}
+\usepackage{lastpage} 
+\usepackage[bottom]{footmisc}
+\usepackage{pdflscape}
+\usepackage{ragged2e}
+\usepackage{enumerate}
+\usepackage{enumitem} 
+\usepackage{lmodern}
+
+%-------------Math and Physics packages-----------%
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{mathtools}
+\usepackage{empheq}
+
+%---------Sets up different colors----------------%
+
+\usepackage{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue,
+	citecolor=blue,
+}
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\usepackage{tabu}
+
+%---------Set specific bibliography--------------%
+
+\usepackage{natbib}
+\bibliographystyle{plainnat}
+\setcitestyle{authoryear,open={(},close={)}}
+
+%--------Useful for Mathematical Texts-----------%
+
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}{Corolario}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{definition}{Definición}[section]
+\newtheorem{prop}{Proposición}
+\newtheorem{property}{Propiedad}
+\theoremstyle{definition}
+\newtheorem{remark}{Nota}[section]
+\newtheorem{example}{Ejemplo}[section]
+
+%-------Section and subsection title size-------%
+
+\titleformat{\section}
+{\normalfont\fontsize{20}{12}\bfseries}{\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\normalfont\fontsize{18}{12}\bfseries}{\thesubsection}{1em}{}
+\renewcommand{\headrulewidth}{0.4pt}
+
+%---------Header and footer definitions----------%
+
+% Define Header
+\fancyhead[LE]{\hspace{0.3cm}{\leftmark}} 
+\fancyhead[RO]{{\rightmark}\hspace{0.3cm}} 
+\fancyhead[RE]{{\rightmark}\hspace{0.3cm}}  
+\fancyhead[LO]{\hspace{0.3cm}{\leftmark}} 
+
+% Define Footer
+\lfoot{\hspace{0.3cm} Javier Luis González Monge}
+\cfoot{\thepage}
+\rfoot{Foo Trabajo \hspace{0.3cm}} 
+
+%Define width of horizontal line in the header
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headsep}{0.2in}
+
+%Define width of horizontal line in the footer
+\renewcommand{\footrulewidth}{0.4pt}
+\setlength{\headheight}{25pt}
+
+%--Establish when figures and tables begin to count--%
+
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\renewcommand{\listfigurename}{Lista de Figuras}
+\renewcommand{\listtablename}{Lista de Tablas}
+\renewcommand{\contentsname}{Lista de Contenidos}
+
+\pagenumbering{roman}
+\onehalfspacing
+
+\input{chapters/titlepage}
+
+\doublespacing	
+\tableofcontents
+\cleardoublepage
+\pagestyle{plain}
+
+\addcontentsline{toc}{section}{\listfigurename}
+\listoffigures
+\cleardoublepage
+\thispagestyle{plain}
+
+\addcontentsline{toc}{section}{Índice de tablas}
+\listoftables
+\cleardoublepage
+
+\pagestyle{fancy}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\onehalfspacing		
+
+\section{Section 1}
+\label{chap:intro}
+\input{chapters/Introduction}
+\newpage
+
+\section{Section 2}
+\label{chap:2}
+\input{chapters/Chapter2}
+\newpage
+
+\section{Section 3}
+\label{chap:3}
+\input{chapters/Chapter3}
+\newpage
+
+\section{Section 4}
+\label{chap:4}
+\input{chapters/Chapter4}
+\newpage
+
+\section{Section 5}
+\label{chap:conclusiones}
+\input{chapters/Conclusion}
+\newpage
+
+%-----------Change behaviour of references page---------------%
+\fancyhead[LE]{\hspace{0.3cm}{\leftmark}}
+\fancyhead[LO]{\hspace{0.3cm}{\leftmark}}
+\fancyhead[RO]{}
+\fancyhead[RE]{}
+\nocite{*}
+\bibliography{biblio}
+
+
+\end{document}}
+

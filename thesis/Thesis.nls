@@ -1,0 +1,10 @@
+
+\begin{thenomenclature} 
+\nomgroup{A}
+  \item [{$[M]$}]\begingroup Mass matrix of the bladed-disk\nomeqref {0.0}\nompageref{xi}
+\nomgroup{B}
+  \item [{$[\circ]^H$}]\begingroup Complex conjugate transpose\nomeqref {0.0}\nompageref{xi}
+\nomgroup{C}
+  \item [{$k$}]\begingroup Wave number\nomeqref {0.0}\nompageref{xi}
+
+\end{thenomenclature}

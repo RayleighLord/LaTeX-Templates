@@ -1,0 +1,52 @@
+%-----------------Default settings-------------------%
+\documentclass[dvipsnames, aspectratio = 169]{beamer}
+\usetheme{Madrid}
+\usepackage{color}
+\usecolortheme{default}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+%----------Graphics and multimedia packages----------%
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{multimedia}
+
+%----------Math and Physics packages----------%
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{mathtools}
+ 
+%-------------Set Bibliography---------------%
+
+\title[Short Presentation Title]{Full Presentation Title}
+\subtitle[Short Presentation Subtitle]{Full Presentation Subtitle}
+\author[R. Speedwagon]{Robert Speedwagon\texorpdfstring{\\}{, }personal-id@mail.muni.cz}
+\institute[MU]{Masaryk University}
+\date{\today}
+\subject{Presentation Subject}
+
+
+\begin{document}
+
+\begin{frame}
+    \maketitle
+\end{frame}
+
+\begin{frame}
+    \frametitle{Hello World}
+
+    Hello \cite{einstein1905tragheit}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{References}
+    \bibliographystyle{amsalpha}
+    \bibliography{biblio.bib}
+\end{frame}
+
+
+\end{document}

@@ -1,0 +1,189 @@
+%------------Basic document settings--------------%
+\documentclass[12pt, twoside, openright]{report}
+\usepackage[a4paper,width = 150mm, top=25mm, bottom= 25mm, bindingoffset = 14mm, footskip=35pt]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[american]{babel}
+
+%---------Graphics paths and labels------------%
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage[labelfont=bf]{caption}
+\usepackage{subcaption}
+\usepackage{titlesec}
+
+%-Miscellaneous packages for different purposes-%
+\usepackage{chngcntr}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{url}
+\usepackage{lastpage} 
+\usepackage[bottom]{footmisc}
+\usepackage{pdflscape}    
+\usepackage{ragged2e}
+\usepackage{enumerate}
+\usepackage{enumitem} 
+\usepackage{lmodern}
+
+%-------------Math and Physics packages-----------%
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{mathtools}
+\usepackage{empheq}
+
+%---------Sets up different colors----------------%
+
+\usepackage{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue,
+	citecolor=blue,
+}
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\usepackage{tabu}
+
+%---------Set specific bibliography--------------%
+
+\usepackage{natbib}
+\bibliographystyle{plainnat}
+\setcitestyle{authoryear,open={(},close={)}}
+
+%--------Useful for Mathematical Texts-----------%
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{prop}{Proposition}
+\newtheorem{property}{Property}
+\theoremstyle{definition}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{example}{Example}[section]
+
+%---------Header and footer definitions----------%
+
+% Define Header
+\fancyhead[LE]{\hspace{0.3cm}{\leftmark}} 
+\fancyhead[RO]{{\rightmark}\hspace{0.3cm}} 
+\fancyhead[RE]{} 
+\fancyhead[LO]{} 
+
+% Define Footer
+\lfoot{\hspace{0.3cm} Javier Luis González Monge}
+\cfoot{\thepage}
+\rfoot{Master's Thesis \hspace{0.3cm}} 
+
+%Define width of horizontal line in the header
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headsep}{0.2in}
+
+%Define width of horizontal line in the footer
+\renewcommand{\footrulewidth}{0.4pt}
+\setlength{\headheight}{25pt}
+
+%--Establish when figures and tables begin to count--%
+
+\counterwithin{figure}{chapter}
+\counterwithin{table}{chapter}
+\numberwithin{equation}{chapter}
+
+%----------Use of nomenclature section-----------%
+\usepackage{enumitem}
+\usepackage{nomencl}
+\usepackage{etoolbox}
+\usepackage[nohyperlinks]{acronym}
+\renewcommand\nomgroup[1]{%
+	\item[\bfseries
+	\ifstrequal{#1}{A}{Chapter 2}{%
+	\ifstrequal{#1}{B}{Chapter 3}{%
+	\ifstrequal{#1}{C}{Chapter 4}{}}}%
+	]}
+\makenomenclature
+\begin{document}
+
+\pagenumbering{roman}
+\onehalfspacing
+
+\input{chapters/titlepage}
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+The objective of this thesis...
+
+\textbf{Key words:} LPT, bladed-disk, flutter, vibration, bifurcation, dynamical systems, traveling wave.
+
+\doublespacing	
+\tableofcontents
+\pagestyle{plain}
+
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+\cleardoublepage
+\thispagestyle{plain}
+
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+\cleardoublepage
+
+\onehalfspacing
+\addcontentsline{toc}{chapter}{Nomenclature}
+\nomenclature[A]{$[M]$}{Mass matrix of the bladed-disk}
+\nomenclature[B]{$[\circ]^H$}{Complex conjugate transpose}
+\nomenclature[C]{$k$}{Wave number}
+
+\printnomenclature
+\clearpage
+
+\textbf{\Large
+	{Acronyms}}
+
+\begin{acronym}
+	\acro{CFD}{Computational Fluid Dynamics}
+	\acro{TW}{Travelling Wave}
+\end{acronym}
+
+\cleardoublepage
+
+\pagestyle{fancy}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\onehalfspacing		
+
+\chapter{Introduction}
+\label{chap:intro}
+\input{chapters/Introduction}
+
+\chapter{Chapter 2}
+\label{chap:2}
+\input{chapters/Chapter2}
+
+\chapter{Chapter 3}
+\label{chap:3}
+\input{chapters/Chapter3}
+
+\chapter{Chapter 4}
+\label{chap:4}
+\input{chapters/Chapter4}
+
+\chapter{Chapter 5}
+\label{chap:conclusiones}
+\input{chapters/Conclusion}
+
+\appendix
+\chapter{Appendix}
+\label{chap:apendice}
+\input{chapters/Appendix}
+
+\nocite{*}
+\bibliography{biblio}
+
+
+\end{document}}
+
